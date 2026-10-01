@@ -8,7 +8,9 @@ ScienceDirect and SpringerLink (2021–2026).
 ORCID [0009-0004-6899-4555](https://orcid.org/0009-0004-6899-4555) ·
 cristhiane.osorior@uqvirtual.edu.co
 
-The article is in [`article/`](article): `main.tex` (English) and `main_es.tex` (Spanish).
+The article is in [`article/`](article), in IEEE two-column format (`IEEEtran`):
+`main.tex` (English) and `main_es.tex` (Spanish). A one-column version with the same
+content is kept as a backup: `main_onecolumn.tex` and `main_es_onecolumn.tex`.
 
 ## What the study does
 
@@ -44,7 +46,8 @@ results/
   figures/<db>/<en|es>/   figures (PDF and PNG) and summary.txt with the numbers behind them
   review_stats.txt        every number reported in the systematic review
 docs/           methodology, codebook and how to obtain API keys
-article/        LaTeX sources of the article (English and Spanish) and bibliography
+article/        LaTeX sources of the article: IEEE two-column (main*.tex), one-column
+                backup (main*_onecolumn.tex), bibliography and the IEEEtran class files
 ```
 
 ## Pipeline
@@ -82,7 +85,8 @@ make all
 Without API keys, `make published` regenerates the figures, the review statistics, the
 bibliography and both PDFs from the data published in this repository (steps 05–07).
 
-`make all` runs steps 02–07 and compiles both PDFs. It expects the exports of the
+`make all` runs steps 02–07 and compiles both IEEE PDFs; `make article-onecolumn` compiles
+the one-column backup. It expects the exports of the
 2026-09-28 snapshot in `data/raw/` with the names `bibliometria_20260928_<db>.csv`
 (see `scripts/paths.py`).
 

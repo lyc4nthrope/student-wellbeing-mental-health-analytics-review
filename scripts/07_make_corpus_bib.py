@@ -2,7 +2,7 @@
 
 The citation keys are the record ids (S###, D###, I###), so every citation in
 the article traces back to data/screening/extraction_all.csv. Metadata come from
-data/included/<db>_included.csv. Both language versions are scanned.
+data/included/<db>_included.csv. All article versions are scanned.
 
 Usage: python3 scripts/07_make_corpus_bib.py
 """
@@ -11,7 +11,7 @@ import re
 
 from paths import ARTICLE, DATABASES, included_csv
 
-TEX_FILES = ("main.tex", "main_es.tex")
+TEX_FILES = ("main.tex", "main_es.tex", "main_onecolumn.tex", "main_es_onecolumn.tex")
 
 
 def cited_keys():

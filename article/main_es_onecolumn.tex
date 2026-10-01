@@ -1,25 +1,35 @@
-\documentclass[journal]{IEEEtran}
+\documentclass[11pt,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish,es-noshorthands,es-tabla]{babel}
+\usepackage{lmodern}
 \usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{caption}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta}
-\usepackage{cite}
+\usepackage[numbers,sort&compress]{natbib}
 \usepackage[hidelinks]{hyperref}
 
+\captionsetup{font=small,labelfont=bf}
 \graphicspath{{../results/figures/}}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \decimalpoint
-\renewcommand{\IEEEkeywordsname}{Palabras clave}
 
-\title{Analítica del bienestar y la salud mental estudiantil: revisión sistemática y análisis bibliométrico comparativo de IEEE Xplore, ScienceDirect y SpringerLink (2021--2026)}
-\author{Cristhian Eduardo Osorio Restrepo\thanks{C. E. Osorio Restrepo pertenece a la Universidad del Quindío, Colombia (correo: \href{mailto:cristhiane.osorior@uqvirtual.edu.co}{cristhiane.osorior@uqvirtual.edu.co}; correo secundario: \href{mailto:osoriocristhian86@gmail.com}{osoriocristhian86@gmail.com}). ORCID: \href{https://orcid.org/0009-0004-6899-4555}{0009-0004-6899-4555}.}}
+\title{Analítica del bienestar y la salud mental estudiantil:\\
+revisión sistemática y análisis bibliométrico comparativo de\\
+IEEE Xplore, ScienceDirect y SpringerLink (2021--2026)}
+\author{Cristhian Eduardo Osorio Restrepo\\[2pt]
+\small ORCID: \href{https://orcid.org/0009-0004-6899-4555}{\texttt{0009-0004-6899-4555}}\\
+\small Universidad del Quindío, Colombia\\
+\small \href{mailto:cristhiane.osorior@uqvirtual.edu.co}{\texttt{cristhiane.osorior@uqvirtual.edu.co}} (institucional)\\
+\small \href{mailto:osoriocristhian86@gmail.com}{\texttt{osoriocristhian86@gmail.com}} (secundario)}
+\date{}
 
 \begin{document}
 \maketitle
@@ -29,9 +39,7 @@
 La analítica del bienestar y la salud mental estudiantil aplica analítica de datos, minería de datos y aprendizaje automático a datos sobre estudiantes con el fin de evaluar, predecir o monitorear su salud mental y su bienestar. Este estudio combina una revisión sistemática de resúmenes con un análisis bibliométrico comparativo de la investigación sobre este tema publicada entre 2021 y 2026 en IEEE Xplore, ScienceDirect y SpringerLink. Se obtuvieron los metadatos de 1072 registros con resumen mediante las API oficiales de las tres bases, y cada resumen se cribó y codificó con un libro de códigos cerrado. De estos registros, 336 no estaban relacionados con el tema, 230 se excluyeron tras revisión, 4 estaban retractados y 502 se conservaron (426 de IEEE Xplore, 33 de ScienceDirect y 43 de SpringerLink). Los estudios conservados son principalmente modelos predictivos (65\%) sobre estudiantes universitarios (66\%), centrados en el estrés (32\%), la depresión (27\%) y la ansiedad (20\%), y construidos sobre todo con clasificadores clásicos y ensambles de árboles. La proporción de estudios que reportan inteligencia artificial explicable pasó del 4\% en 2021 al 32\% en 2026, y también crecieron el aprendizaje profundo y el procesamiento de lenguaje natural. En IEEE Xplore, la producción creció a una tasa anual compuesta del 59.1\% entre 2021 y 2025 y se concentra en India y China, con poca colaboración internacional. Cada base muestra un énfasis distinto: el modelado predictivo en IEEE Xplore, la intersección entre psicología y computación en ScienceDirect, y los constructos de bienestar positivo en SpringerLink. Los resúmenes revelan también debilidades metodológicas: el 39\% omite los datos, el método o el resultado, al menos 44 reportan valores de desempeño del 98\% o más, y solo dos reportan validación con una cohorte externa.
 \end{abstract}
 
-\begin{IEEEkeywords}
-Salud mental estudiantil, bienestar estudiantil, analítica del aprendizaje, aprendizaje automático, revisión sistemática, análisis bibliométrico.
-\end{IEEEkeywords}
+\noindent\textbf{Palabras clave:} salud mental estudiantil; bienestar estudiantil; analítica del aprendizaje; aprendizaje automático; revisión sistemática; análisis bibliométrico
 
 % =====================================================================
 \section{Introducción}
@@ -40,7 +48,7 @@ Los trastornos mentales son frecuentes entre los estudiantes universitarios. En 
 
 Las universidades y los investigadores recogen muchos tipos de datos sobre los estudiantes: cuestionarios, registros académicos, datos de sensores de teléfonos inteligentes y dispositivos vestibles, y texto. La analítica del aprendizaje se define como la medición, recolección, análisis y reporte de datos sobre los estudiantes y sus contextos \cite{siemens2011analytics}, y el aprendizaje automático ofrece métodos para detectar patrones y predecir resultados en datos de salud mental \cite{shatte2019mlmh}. El estudio StudentLife, por ejemplo, encontró que los datos de sensado pasivo del teléfono se asociaban con la depresión, el estrés y el rendimiento académico de estudiantes universitarios \cite{wang2014studentlife}. En este artículo, la \emph{analítica del bienestar y la salud mental estudiantil} se refiere a la aplicación de analítica de datos, minería de datos, aprendizaje automático o inteligencia artificial a datos sobre estudiantes con el fin de evaluar, predecir o monitorear su salud mental o su bienestar.
 
-Un análisis bibliométrico mapea la estructura y la evolución de un campo de investigación a partir de los metadatos de las publicaciones \cite{donthu2021bibliometric,zupic2015bibliometric}, y una revisión sistemática examina el contenido de los estudios. Demir et al.~\cite{demir2024aviation} combinaron ambos enfoques para estudiar la inteligencia artificial en la seguridad aérea. Este artículo aplica la misma combinación a la analítica del bienestar y la salud mental estudiantil, con dos diferencias: analiza tres bases de datos por separado en lugar de una, y criba cada resumen antes del análisis bibliométrico, de modo que los mapas bibliométricos describen solo estudios que pertenecen al tema.
+Un análisis bibliométrico mapea la estructura y la evolución de un campo de investigación a partir de los metadatos de las publicaciones \cite{donthu2021bibliometric,zupic2015bibliometric}, y una revisión sistemática examina el contenido de los estudios. \citet{demir2024aviation} combinaron ambos enfoques para estudiar la inteligencia artificial en la seguridad aérea. Este artículo aplica la misma combinación a la analítica del bienestar y la salud mental estudiantil, con dos diferencias: analiza tres bases de datos por separado en lugar de una, y criba cada resumen antes del análisis bibliométrico, de modo que los mapas bibliométricos describen solo estudios que pertenecen al tema.
 
 El estudio aborda seis preguntas de investigación (PI):
 
@@ -76,7 +84,7 @@ Luego se cribó cada resumen frente a la definición del tema dada en la introdu
 
 Muchos de los registros obtenidos no estaban relacionados con el tema. En IEEE Xplore, la proporción de registros cuyo título menciona estudiantes o un entorno educativo bajó del 94\% entre los primeros 117 resultados al 9\% entre los últimos 114. La solicitud a la API no fijó ningún orden, y este patrón es coherente con resultados devueltos por relevancia, de modo que el final de la lista contiene estudios no relacionados (por ejemplo, monitoreo de la salud de astronautas o detección de la enfermedad de Parkinson). En ScienceDirect, el 42\% de los registros no estaba relacionado (por ejemplo, imágenes de la enfermedad de Alzheimer o progresión del glaucoma); los resúmenes de varios de estos registros mencionan una universidad o una organización de ``wellbeing'' en el texto de afiliación o de financiación, que el campo \texttt{TITLE-ABS-KEY} incluye en la búsqueda.
 
-\begin{figure*}[!t]
+\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[
   node distance=6mm and 8mm,
@@ -99,7 +107,7 @@ Muchos de los registros obtenidos no estaban relacionados con el tema. En IEEE X
 \end{tikzpicture}
 \caption{Diagrama de flujo PRISMA 2020 de identificación, cribado e inclusión de registros.}
 \label{fig:prisma}
-\end{figure*}
+\end{figure}
 
 \subsection{Extracción de datos}
 
@@ -118,7 +126,7 @@ Para IEEE Xplore y SpringerLink se usaron las palabras clave de autor. La API de
 
 La Tabla~\ref{tab:overview} resume los 502 estudios incluidos. La mayoría construye modelos predictivos (65\%), y cerca de uno de cada cinco describe un sistema o plataforma. La población es principalmente universitaria (66\%); los estudiantes de secundaria aparecen solo en el 5\% de los estudios. El estrés (32\%), el riesgo general de salud mental (30\%), la depresión (27\%) y la ansiedad (20\%) son los resultados más estudiados, mientras que el bienestar positivo (10\%) y el suicidio (3\%) reciben menos atención. Los cuestionarios son la fuente de datos más frecuente (34\%), y cerca de una cuarta parte de los resúmenes (26\%) no indica qué datos se usaron.
 
-\begin{table*}[!t]
+\begin{table}[htbp]
 \centering
 \caption{Características de los 502 estudios incluidos (un estudio puede tener más de un valor por dimensión).}
 \label{tab:overview}
@@ -136,33 +144,33 @@ Explicabilidad & XAI reportada en 63 estudios (13\%) \\
 Calidad del resumen & Claro 307 (61\%); vago 195 (39\%) \\
 \bottomrule
 \end{tabularx}
-\end{table*}
+\end{table}
 
 \subsection{Categorías temáticas}
 
 Los estudios incluidos se agruparon en ocho categorías temáticas derivadas de los campos codificados. Las categorías se superponen, y 56 estudios no pertenecen a ninguna.
 
-\paragraph{Predicción y tamizaje de depresión, ansiedad y estrés (229 estudios, 46\%)} Es la categoría más grande. Estos estudios predicen o clasifican la depresión, la ansiedad o el estrés, principalmente a partir de cuestionarios, y comparan varios clasificadores; el 20\% de los resúmenes de esta categoría nombra un instrumento validado como el PHQ-9, el GAD-7, la PSS o la DASS-21. Algunos ejemplos son la predicción de depresión, ansiedad y estrés en estudiantes universitarios del Líbano durante la guerra de 2024 \cite{S001}, el tamizaje de depresión a partir de hábitos diarios en Bangladés \cite{S011} y el tamizaje de ansiedad, depresión y agotamiento en 886 estudiantes de medicina suizos \cite{I468}. Algunos estudios usan muestras grandes, como un modelo XGBoost explicable entrenado con 100\,257 estudiantes universitarios (AUC 0.887) \cite{S003} y un ensamble por apilamiento entrenado con un conjunto de datos público de 27\,901 estudiantes (AUC 0.919) \cite{D011}. Entre las variables que se nombran en estos resúmenes, las que aparecen con más frecuencia son los factores académicos (presión, carga o rendimiento; 36\% de los resúmenes), el apoyo social o la familia (14\%), el sueño (14\%) y la situación económica (8\%). Bangladés es el país que más se indica en esta categoría (23 estudios).
+\paragraph{Predicción y tamizaje de depresión, ansiedad y estrés (229 estudios, 46\%).} Es la categoría más grande. Estos estudios predicen o clasifican la depresión, la ansiedad o el estrés, principalmente a partir de cuestionarios, y comparan varios clasificadores; el 20\% de los resúmenes de esta categoría nombra un instrumento validado como el PHQ-9, el GAD-7, la PSS o la DASS-21. Algunos ejemplos son la predicción de depresión, ansiedad y estrés en estudiantes universitarios del Líbano durante la guerra de 2024 \cite{S001}, el tamizaje de depresión a partir de hábitos diarios en Bangladés \cite{S011} y el tamizaje de ansiedad, depresión y agotamiento en 886 estudiantes de medicina suizos \cite{I468}. Algunos estudios usan muestras grandes, como un modelo XGBoost explicable entrenado con 100\,257 estudiantes universitarios (AUC 0.887) \cite{S003} y un ensamble por apilamiento entrenado con un conjunto de datos público de 27\,901 estudiantes (AUC 0.919) \cite{D011}. Entre las variables que se nombran en estos resúmenes, las que aparecen con más frecuencia son los factores académicos (presión, carga o rendimiento; 36\% de los resúmenes), el apoyo social o la familia (14\%), el sueño (14\%) y la situación económica (8\%). Bangladés es el país que más se indica en esta categoría (23 estudios).
 
-\paragraph{Riesgo de suicidio (14 estudios, 3\%)} Pocos estudios abordan el suicidio directamente. Predicen la ideación o la conducta suicida a partir de cuestionarios, por ejemplo con un conjunto de datos validado por psiquiatras de 4004 estudiantes de 99 universidades de Bangladés (XGBoost, F1 75.4\%) \cite{S010}, un instrumento de autorreporte para estudiantes de medicina (SVM, AUC 0.81) \cite{I503} y la Encuesta Mundial de Salud Escolar de la OMS \cite{I820}.
+\paragraph{Riesgo de suicidio (14 estudios, 3\%).} Pocos estudios abordan el suicidio directamente. Predicen la ideación o la conducta suicida a partir de cuestionarios, por ejemplo con un conjunto de datos validado por psiquiatras de 4004 estudiantes de 99 universidades de Bangladés (XGBoost, F1 75.4\%) \cite{S010}, un instrumento de autorreporte para estudiantes de medicina (SVM, AUC 0.81) \cite{I503} y la Encuesta Mundial de Salud Escolar de la OMS \cite{I820}.
 
-\paragraph{Sistemas de alerta temprana y plataformas (109 estudios, 22\%)} Estos estudios proponen un sistema completo: un clasificador de riesgo integrado en una aplicación web o móvil, un \emph{chatbot} o un motor de intervención. Algunos ejemplos son una aplicación móvil que clasifica el estrés de estudiantes de medicina a partir de señales fisiológicas de un dispositivo vestible \cite{I388}, un \emph{chatbot} con análisis de sentimiento que reformula los ítems del PHQ-9 como preguntas abiertas \cite{I212}, un \emph{chatbot} basado en terapia cognitivo-conductual evaluado en usabilidad con estudiantes peruanos \cite{I476} y un agente de aprendizaje por refuerzo que selecciona intervenciones ante crisis \cite{S004}. Esta categoría tiene el reporte más débil: 86 de los 109 resúmenes son vagos y ninguno reporta el uso de XAI.
+\paragraph{Sistemas de alerta temprana y plataformas (109 estudios, 22\%).} Estos estudios proponen un sistema completo: un clasificador de riesgo integrado en una aplicación web o móvil, un \emph{chatbot} o un motor de intervención. Algunos ejemplos son una aplicación móvil que clasifica el estrés de estudiantes de medicina a partir de señales fisiológicas de un dispositivo vestible \cite{I388}, un \emph{chatbot} con análisis de sentimiento que reformula los ítems del PHQ-9 como preguntas abiertas \cite{I212}, un \emph{chatbot} basado en terapia cognitivo-conductual evaluado en usabilidad con estudiantes peruanos \cite{I476} y un agente de aprendizaje por refuerzo que selecciona intervenciones ante crisis \cite{S004}. Esta categoría tiene el reporte más débil: 86 de los 109 resúmenes son vagos y ninguno reporta el uso de XAI.
 
-\paragraph{Sensado con sensores y datos multimodales (142 estudios, 28\%)} Estos estudios usan dispositivos vestibles, teléfonos inteligentes o varias fuentes de datos combinadas para captar el comportamiento y la fisiología. Algunos ejemplos son el pronóstico del afecto positivo y negativo con una semana de anticipación a partir de datos de dispositivos vestibles combinados con diarios \cite{D061}, modelos interpretables sobre el College Experience Study de varios años \cite{I089,I100}, un sistema de detección de ansiedad basado en sensores de sudor evaluado con el conjunto de datos StudentLife \cite{D023} y un marco multimodal probado con 14\,604 estudiantes de 24 universidades con validación externa y restricciones de equidad \cite{S005}. El desempeño varía mucho: un estudio que predijo el bienestar subjetivo a partir del conteo de pasos, la frecuencia cardiaca y el sueño alcanzó una exactitud del 62\% \cite{D080}.
+\paragraph{Sensado con sensores y datos multimodales (142 estudios, 28\%).} Estos estudios usan dispositivos vestibles, teléfonos inteligentes o varias fuentes de datos combinadas para captar el comportamiento y la fisiología. Algunos ejemplos son el pronóstico del afecto positivo y negativo con una semana de anticipación a partir de datos de dispositivos vestibles combinados con diarios \cite{D061}, modelos interpretables sobre el College Experience Study de varios años \cite{I089,I100}, un sistema de detección de ansiedad basado en sensores de sudor evaluado con el conjunto de datos StudentLife \cite{D023} y un marco multimodal probado con 14\,604 estudiantes de 24 universidades con validación externa y restricciones de equidad \cite{S005}. El desempeño varía mucho: un estudio que predijo el bienestar subjetivo a partir del conteo de pasos, la frecuencia cardiaca y el sueño alcanzó una exactitud del 62\% \cite{D080}.
 
-\paragraph{Lenguaje, texto y emoción (109 estudios, 22\%)} Estos estudios analizan respuestas abiertas, diarios, publicaciones en redes sociales o voz, o reconocen emociones como indicadores del estado mental. Los modelos \emph{transformer} aparecen junto a los clasificadores clásicos, por ejemplo BERT y RoBERTa para clasificar condiciones de salud mental a partir de textos de estudiantes \cite{I090,I254}. Se aplicaron aprendizaje automático, aprendizaje profundo y modelos de lenguaje combinados con SHAP y LIME a la detección de depresión en estudiantes de Bangladés \cite{D045}.
+\paragraph{Lenguaje, texto y emoción (109 estudios, 22\%).} Estos estudios analizan respuestas abiertas, diarios, publicaciones en redes sociales o voz, o reconocen emociones como indicadores del estado mental. Los modelos \emph{transformer} aparecen junto a los clasificadores clásicos, por ejemplo BERT y RoBERTa para clasificar condiciones de salud mental a partir de textos de estudiantes \cite{I090,I254}. Se aplicaron aprendizaje automático, aprendizaje profundo y modelos de lenguaje combinados con SHAP y LIME a la detección de depresión en estudiantes de Bangladés \cite{D045}.
 
-\paragraph{Bienestar positivo (50 estudios, 10\%)} Una línea de investigación más pequeña trata el bienestar como un constructo positivo (satisfacción con la vida, felicidad, bienestar subjetivo y eudaimónico) y no como la ausencia de trastornos. Tres estudios basados en datos de PISA combinan bosques aleatorios o \emph{gradient boosting} con modelos lineales jerárquicos, y los tres identifican el sentido de pertenencia escolar entre los predictores más fuertes, junto con la resiliencia, el sentido de propósito o el miedo al fracaso \cite{S040,S041,S048}. Otros estudios predicen la felicidad y la satisfacción con la vida de estudiantes universitarios con validación externa \cite{S021}, o relacionan la alfabetización en salud y la adherencia al ejercicio con la satisfacción con la vida de 21\,095 estudiantes \cite{D007}.
+\paragraph{Bienestar positivo (50 estudios, 10\%).} Una línea de investigación más pequeña trata el bienestar como un constructo positivo (satisfacción con la vida, felicidad, bienestar subjetivo y eudaimónico) y no como la ausencia de trastornos. Tres estudios basados en datos de PISA combinan bosques aleatorios o \emph{gradient boosting} con modelos lineales jerárquicos, y los tres identifican el sentido de pertenencia escolar entre los predictores más fuertes, junto con la resiliencia, el sentido de propósito o el miedo al fracaso \cite{S040,S041,S048}. Otros estudios predicen la felicidad y la satisfacción con la vida de estudiantes universitarios con validación externa \cite{S021}, o relacionan la alfabetización en salud y la adherencia al ejercicio con la satisfacción con la vida de 21\,095 estudiantes \cite{D007}.
 
-\paragraph{Adicción (22 estudios, 4\%)} Estos estudios predicen adicciones conductuales (a internet, al teléfono inteligente, a los videojuegos y a las redes sociales) como problemas de salud mental, por ejemplo en 3000 estudiantes universitarios de China \cite{D063} y en 569 estudiantes de ingeniería \cite{I665}. Algunos reportan un desempeño casi perfecto, como un R\textsuperscript{2} de 0.977 para la severidad de la nomofobia \cite{I344}.
+\paragraph{Adicción (22 estudios, 4\%).} Estos estudios predicen adicciones conductuales (a internet, al teléfono inteligente, a los videojuegos y a las redes sociales) como problemas de salud mental, por ejemplo en 3000 estudiantes universitarios de China \cite{D063} y en 569 estudiantes de ingeniería \cite{I665}. Algunos reportan un desempeño casi perfecto, como un R\textsuperscript{2} de 0.977 para la severidad de la nomofobia \cite{I344}.
 
-\paragraph{Revisiones (14 estudios, 3\%)} Las revisiones incluidas cubren subtemas acotados, por ejemplo el aprendizaje automático para detectar estrés en estudiantes universitarios \cite{I192}, la predicción del estrés y del rendimiento académico de los estudiantes \cite{I501}, y el aprendizaje automático con dispositivos vestibles y teléfonos inteligentes \cite{S049}. Ninguna de las 14 revisiones reporta un análisis bibliométrico.
+\paragraph{Revisiones (14 estudios, 3\%).} Las revisiones incluidas cubren subtemas acotados, por ejemplo el aprendizaje automático para detectar estrés en estudiantes universitarios \cite{I192}, la predicción del estrés y del rendimiento académico de los estudiantes \cite{I501}, y el aprendizaje automático con dispositivos vestibles y teléfonos inteligentes \cite{S049}. Ninguna de las 14 revisiones reporta un análisis bibliométrico.
 
 \subsection{Técnicas por resultado}
 
 La Tabla~\ref{tab:methods} cruza las familias de métodos con los resultados. Los clasificadores clásicos (regresión logística, máquinas de vectores de soporte, árboles de decisión, k vecinos más cercanos, Bayes ingenuo) y los ensambles de árboles (bosques aleatorios, \emph{gradient boosting}, XGBoost, CatBoost) son los métodos más frecuentes para la depresión, la ansiedad, el estrés y el suicidio. Para las emociones, donde la entrada suele ser texto, imágenes o voz, el aprendizaje profundo (29 estudios) y el procesamiento de lenguaje natural (26) son más frecuentes que los clasificadores clásicos (12). En la investigación sobre bienestar, los métodos estadísticos (13 de 50 estudios) son casi tan frecuentes como los de aprendizaje automático.
 
-\begin{table*}[!t]
+\begin{table}[htbp]
 \centering
 \caption{Número de estudios incluidos por resultado y familia de métodos (un estudio puede usar varios métodos y resultados).}
 \label{tab:methods}
@@ -182,13 +190,13 @@ Adicción & 22 & 9 & 10 & 6 & 2 & 2 & 5 \\
 Suicidio & 14 & 9 & 7 & 2 & 1 & 0 & 1 \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 \subsection{Evolución en el tiempo}
 
 El contenido de los estudios cambió entre 2021 y 2026 (Tabla~\ref{tab:years}). La proporción de estudios que usan aprendizaje profundo pasó del 15\% en 2021 al 41\% en 2025, y la proporción que reporta métodos de XAI como SHAP \cite{lundberg2017shap} o LIME \cite{ribeiro2016lime} pasó del 4\% en 2021 al 32\% en 2026. La proporción que usa procesamiento de lenguaje natural osciló entre el 7\% y el 12\% hasta 2024 y llegó al 19\% en 2025. Estos cambios coinciden con las tendencias de palabras clave de la Sección~\ref{sec:biblio}, que se calculan a partir de los metadatos y no del contenido codificado.
 
-\begin{table*}[!t]
+\begin{table}[htbp]
 \centering
 \caption{Proporción de estudios incluidos por año que usan determinados métodos y datos (2026 es un año parcial).}
 \label{tab:years}
@@ -205,7 +213,7 @@ Procesamiento de lenguaje natural & 12\% & 11\% & 7\% & 9\% & 19\% & 15\% \\
 Bienestar positivo como resultado & 4\% & 15\% & 14\% & 10\% & 12\% & 5\% \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 \subsection{Señales de calidad metodológica}
 
@@ -218,65 +226,65 @@ Los resúmenes muestran cuatro debilidades. Primero, el 39\% de los resúmenes e
 
 IEEE Xplore aporta 426 documentos incluidos (405 artículos de congreso y 21 artículos de revista), el 85\% del total. 421 de ellos tienen palabras clave de autor.
 
-\paragraph{Producción anual} La producción fue de 25 documentos en 2021 y 24 en 2022, y luego subió a 50 en 2023, 97 en 2024 y 160 en 2025 (Figura~\ref{fig:ieee-prod}), una tasa de crecimiento anual compuesta del 59.1\% entre 2021 y 2025. Los 70 documentos de 2026 cubren solo el periodo hasta el 28 de septiembre y no son comparables con los años completos.
+\paragraph{Producción anual.} La producción fue de 25 documentos en 2021 y 24 en 2022, y luego subió a 50 en 2023, 97 en 2024 y 160 en 2025 (Figura~\ref{fig:ieee-prod}), una tasa de crecimiento anual compuesta del 59.1\% entre 2021 y 2025. Los 70 documentos de 2026 cubren solo el periodo hasta el 28 de septiembre y no son comparables con los años completos.
 
-\paragraph{Fuentes} La literatura está muy dispersa: los 426 documentos aparecen en 342 fuentes, y las diez fuentes más productivas reúnen solo 42 documentos (9.9\%) (Figura~\ref{fig:ieee-sources}). IEEE Access (12 documentos) e IEEE Transactions on Affective Computing (4) son las únicas revistas entre ellas; las demás son ediciones individuales de congresos. El tema no tiene una fuente de publicación consolidada en IEEE Xplore.
+\paragraph{Fuentes.} La literatura está muy dispersa: los 426 documentos aparecen en 342 fuentes, y las diez fuentes más productivas reúnen solo 42 documentos (9.9\%) (Figura~\ref{fig:ieee-sources}). IEEE Access (12 documentos) e IEEE Transactions on Affective Computing (4) son las únicas revistas entre ellas; las demás son ediciones individuales de congresos. El tema no tiene una fuente de publicación consolidada en IEEE Xplore.
 
-\paragraph{Países} 402 documentos tienen un país identificable. India (153 documentos, 38\%) y China (94, 23\%) encabezan la producción, seguidas de Bangladés (38), Estados Unidos (32) e Indonesia (22) (Figura~\ref{fig:ieee-countries}). Solo el 11.7\% de los documentos tiene autores de más de un país. India (9\% MCP) y China (9\%) rara vez publican con socios extranjeros, mientras que Estados Unidos (56\%) y Omán (5 de 6 documentos) publican principalmente en colaboración. Perú (8 documentos) es el único país latinoamericano entre los diez más productivos.
+\paragraph{Países.} 402 documentos tienen un país identificable. India (153 documentos, 38\%) y China (94, 23\%) encabezan la producción, seguidas de Bangladés (38), Estados Unidos (32) e Indonesia (22) (Figura~\ref{fig:ieee-countries}). Solo el 11.7\% de los documentos tiene autores de más de un país. India (9\% MCP) y China (9\%) rara vez publican con socios extranjeros, mientras que Estados Unidos (56\%) y Omán (5 de 6 documentos) publican principalmente en colaboración. Perú (8 documentos) es el único país latinoamericano entre los diez más productivos.
 
-\paragraph{Palabras clave} \emph{Machine learning} aparece en el 44\% de los documentos con palabras clave (187 de 421), seguida de \emph{mental health} (107) (Figura~\ref{fig:ieee-keywords}). Ambas son términos de la búsqueda, por lo que su frecuencia refleja en parte la consulta. El resto de la lista es más informativo: \emph{random forests} (45), \emph{support vector machines} (32) y \emph{decision trees} (20) son tan frecuentes como \emph{deep learning} (28) y \emph{natural language processing} (25), y \emph{explainable AI} (27) está entre las diez palabras clave más frecuentes. \emph{Depression} (39), \emph{anxiety} (29) y \emph{stress} (24) son las condiciones más frecuentes.
+\paragraph{Palabras clave.} \emph{Machine learning} aparece en el 44\% de los documentos con palabras clave (187 de 421), seguida de \emph{mental health} (107) (Figura~\ref{fig:ieee-keywords}). Ambas son términos de la búsqueda, por lo que su frecuencia refleja en parte la consulta. El resto de la lista es más informativo: \emph{random forests} (45), \emph{support vector machines} (32) y \emph{decision trees} (20) son tan frecuentes como \emph{deep learning} (28) y \emph{natural language processing} (25), y \emph{explainable AI} (27) está entre las diez palabras clave más frecuentes. \emph{Depression} (39), \emph{anxiety} (29) y \emph{stress} (24) son las condiciones más frecuentes.
 
-\paragraph{Red de co-ocurrencia} Las 40 palabras clave más frecuentes forman cinco grupos (Figura~\ref{fig:ieee-network}). El más grande (rojo) vincula \emph{machine learning} y \emph{mental health} con las condiciones (depresión, ansiedad, estrés), la población (estudiantes universitarios) y la intervención temprana. El grupo azul reúne los clasificadores clásicos (bosques aleatorios, máquinas de vectores de soporte, árboles de decisión, XGBoost, regresión logística, Bayes ingenuo, k vecinos más cercanos). El grupo verde vincula \emph{student mental health} con IA explicable, SHAP, SMOTE y detección de depresión. El grupo morado reúne el aprendizaje profundo y las redes neuronales convolucionales con la predicción del estrés y el rendimiento académico, y el grupo naranja reúne la inteligencia artificial, el procesamiento de lenguaje natural, el análisis de sentimiento, el reconocimiento de emociones y los \emph{chatbots}.
+\paragraph{Red de co-ocurrencia.} Las 40 palabras clave más frecuentes forman cinco grupos (Figura~\ref{fig:ieee-network}). El más grande (rojo) vincula \emph{machine learning} y \emph{mental health} con las condiciones (depresión, ansiedad, estrés), la población (estudiantes universitarios) y la intervención temprana. El grupo azul reúne los clasificadores clásicos (bosques aleatorios, máquinas de vectores de soporte, árboles de decisión, XGBoost, regresión logística, Bayes ingenuo, k vecinos más cercanos). El grupo verde vincula \emph{student mental health} con IA explicable, SHAP, SMOTE y detección de depresión. El grupo morado reúne el aprendizaje profundo y las redes neuronales convolucionales con la predicción del estrés y el rendimiento académico, y el grupo naranja reúne la inteligencia artificial, el procesamiento de lenguaje natural, el análisis de sentimiento, el reconocimiento de emociones y los \emph{chatbots}.
 
-\paragraph{Mapa temático} \emph{Machine learning}, \emph{mental health} y \emph{depression} forman un tema básico: centralidad alta y densidad cercana a la mediana (Figura~\ref{fig:ieee-thematic}). Los clasificadores clásicos (bosques aleatorios, máquinas de vectores de soporte, árboles de decisión) tienen una centralidad algo superior a la mediana y una densidad baja, en la zona de temas básicos. \emph{Student mental health} con IA explicable y SHAP es un tema motor, a la vez central y desarrollado internamente. El aprendizaje profundo con redes neuronales convolucionales e intervención temprana tiene la mayor densidad y una centralidad apenas inferior a la mediana, por lo que es un tema nicho cercano a los temas motores. La gestión del estrés con algoritmos de aprendizaje automático e internet de las cosas es un tema nicho con baja centralidad. El procesamiento de lenguaje natural con inteligencia artificial y detección de estrés tiene baja centralidad y baja densidad, la posición de los temas emergentes o en declive.
+\paragraph{Mapa temático.} \emph{Machine learning}, \emph{mental health} y \emph{depression} forman un tema básico: centralidad alta y densidad cercana a la mediana (Figura~\ref{fig:ieee-thematic}). Los clasificadores clásicos (bosques aleatorios, máquinas de vectores de soporte, árboles de decisión) tienen una centralidad algo superior a la mediana y una densidad baja, en la zona de temas básicos. \emph{Student mental health} con IA explicable y SHAP es un tema motor, a la vez central y desarrollado internamente. El aprendizaje profundo con redes neuronales convolucionales e intervención temprana tiene la mayor densidad y una centralidad apenas inferior a la mediana, por lo que es un tema nicho cercano a los temas motores. La gestión del estrés con algoritmos de aprendizaje automático e internet de las cosas es un tema nicho con baja centralidad. El procesamiento de lenguaje natural con inteligencia artificial y detección de estrés tiene baja centralidad y baja densidad, la posición de los temas emergentes o en declive.
 
-\paragraph{Tendencia de temas} Los términos muestran un cambio en el tiempo (Figura~\ref{fig:ieee-trend}). \emph{Big data} (año mediano 2022) y COVID-19 (2023) pertenecen a los primeros años. \emph{Mental health}, \emph{depression} y \emph{support vector machines} tienen su mediana en 2024, y \emph{machine learning}, \emph{random forests} y \emph{student mental health} en 2025. Los términos más recientes (mediana en 2026) son \emph{mental health prediction}, \emph{depression prediction} y \emph{wearable sensors}. Como la producción crece cada año, el año mediano de todos los términos tiende hacia los años recientes, por lo que el orden relativo de los términos es más informativo que el año exacto.
+\paragraph{Tendencia de temas.} Los términos muestran un cambio en el tiempo (Figura~\ref{fig:ieee-trend}). \emph{Big data} (año mediano 2022) y COVID-19 (2023) pertenecen a los primeros años. \emph{Mental health}, \emph{depression} y \emph{support vector machines} tienen su mediana en 2024, y \emph{machine learning}, \emph{random forests} y \emph{student mental health} en 2025. Los términos más recientes (mediana en 2026) son \emph{mental health prediction}, \emph{depression prediction} y \emph{wearable sensors}. Como la producción crece cada año, el año mediano de todos los términos tiende hacia los años recientes, por lo que el orden relativo de los términos es más informativo que el año exacto.
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{ieee/es/01_annual_production}
+\includegraphics[width=0.75\textwidth]{ieee/es/01_annual_production}
 \caption{IEEE Xplore: producción científica anual de los documentos incluidos (2026 es un año parcial, hasta el 28 de septiembre).}
 \label{fig:ieee-prod}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{ieee/es/02_sources}
+\includegraphics[width=0.85\textwidth]{ieee/es/02_sources}
 \caption{IEEE Xplore: las diez fuentes más relevantes.}
 \label{fig:ieee-sources}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{ieee/es/03_countries}
+\includegraphics[width=0.75\textwidth]{ieee/es/03_countries}
 \caption{IEEE Xplore: países más productivos (todos los autores, conteo completo), divididos en publicaciones de un solo país (SCP) y de varios países (MCP).}
 \label{fig:ieee-countries}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{ieee/es/04_keywords}
+\includegraphics[width=0.75\textwidth]{ieee/es/04_keywords}
 \caption{IEEE Xplore: palabras clave de autor más frecuentes (en inglés, como en los metadatos originales).}
 \label{fig:ieee-keywords}
 \end{figure}
 
-\begin{figure*}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{ieee/es/05_cooccurrence_network}
+\includegraphics[width=\textwidth]{ieee/es/05_cooccurrence_network}
 \caption{IEEE Xplore: red de co-ocurrencia de las 40 palabras clave de autor más frecuentes (grupos de Louvain).}
 \label{fig:ieee-network}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{ieee/es/06_thematic_map}
+\includegraphics[width=0.85\textwidth]{ieee/es/06_thematic_map}
 \caption{IEEE Xplore: mapa temático de las palabras clave de autor (centralidad frente a densidad). Cuadrantes: temas motores (arriba a la derecha), temas nicho (arriba a la izquierda), temas emergentes o en declive (abajo a la izquierda) y temas básicos (abajo a la derecha).}
 \label{fig:ieee-thematic}
-\end{figure*}
+\end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{ieee/es/07_trend_topics}
+\includegraphics[width=0.75\textwidth]{ieee/es/07_trend_topics}
 \caption{IEEE Xplore: tendencia de temas según el año mediano de uso.}
 \label{fig:ieee-trend}
 \end{figure}
@@ -285,40 +293,40 @@ IEEE Xplore aporta 426 documentos incluidos (405 artículos de congreso y 21 art
 
 ScienceDirect aporta 33 documentos incluidos (28 artículos de revista y 5 artículos de congreso). El análisis de palabras clave usa los conceptos de OpenAlex (33 de 33 documentos), que se asignan automáticamente y describen disciplinas; no son directamente comparables con las palabras clave de autor.
 
-\paragraph{Producción anual} La producción pasó de 2 documentos en 2022 a 10 en 2025, y los 10 documentos del año parcial 2026 ya igualan a 2025 (Figura~\ref{fig:sd-prod}). No se incluyó ningún registro de 2021: los cuatro registros de 2021 obtenidos no estaban relacionados con el tema. Los valores absolutos son pequeños, por lo que no se calcula una tasa de crecimiento.
+\paragraph{Producción anual.} La producción pasó de 2 documentos en 2022 a 10 en 2025, y los 10 documentos del año parcial 2026 ya igualan a 2025 (Figura~\ref{fig:sd-prod}). No se incluyó ningún registro de 2021: los cuatro registros de 2021 obtenidos no estaban relacionados con el tema. Los valores absolutos son pequeños, por lo que no se calcula una tasa de crecimiento.
 
-\paragraph{Fuentes} Los 33 documentos aparecen en 17 fuentes, y las tres más productivas reúnen 15 documentos (45\%) (Figura~\ref{fig:sd-sources}). Representan tres áreas: psicología (Acta Psychologica, 6), computación (Procedia Computer Science, 5) y ciencia multidisciplinar (Heliyon, 4). Las fuentes están mucho menos dispersas que en IEEE Xplore.
+\paragraph{Fuentes.} Los 33 documentos aparecen en 17 fuentes, y las tres más productivas reúnen 15 documentos (45\%) (Figura~\ref{fig:sd-sources}). Representan tres áreas: psicología (Acta Psychologica, 6), computación (Procedia Computer Science, 5) y ciencia multidisciplinar (Heliyon, 4). Las fuentes están mucho menos dispersas que en IEEE Xplore.
 
-\paragraph{Países} 32 documentos tienen país. China encabeza con 8 documentos, seguida de Bangladés (5), India (4), Estados Unidos (3) y España (3) (Figura~\ref{fig:sd-countries}). Tres países europeos (España, Italia y Bélgica) aparecen entre los diez más productivos, mientras que ninguno aparece entre los diez más productivos de IEEE Xplore. Solo 3 documentos (9\%) tienen autores de más de un país. Los conteos son pequeños y deben leerse como indicativos.
+\paragraph{Países.} 32 documentos tienen país. China encabeza con 8 documentos, seguida de Bangladés (5), India (4), Estados Unidos (3) y España (3) (Figura~\ref{fig:sd-countries}). Tres países europeos (España, Italia y Bélgica) aparecen entre los diez más productivos, mientras que ninguno aparece entre los diez más productivos de IEEE Xplore. Solo 3 documentos (9\%) tienen autores de más de un país. Los conteos son pequeños y deben leerse como indicativos.
 
-\paragraph{Palabras clave} Los conceptos más frecuentes son \emph{computer science} y \emph{psychology} (17 documentos cada uno, 52\%), seguidos de \emph{machine learning} (14), \emph{mental health} (13), \emph{artificial intelligence} (12) y \emph{psychiatry} (11) (Figura~\ref{fig:sd-keywords}). El perfil es el de la intersección entre computación y psicología. En los 86 registros obtenidos antes del cribado, \emph{medicine} aparecía en 20 documentos y \emph{psychiatry} en 18; entre los 33 documentos incluidos aparecen en 6 y 11. Gran parte del aparente perfil médico de esta base provenía, por tanto, de registros no relacionados con estudiantes.
+\paragraph{Palabras clave.} Los conceptos más frecuentes son \emph{computer science} y \emph{psychology} (17 documentos cada uno, 52\%), seguidos de \emph{machine learning} (14), \emph{mental health} (13), \emph{artificial intelligence} (12) y \emph{psychiatry} (11) (Figura~\ref{fig:sd-keywords}). El perfil es el de la intersección entre computación y psicología. En los 86 registros obtenidos antes del cribado, \emph{medicine} aparecía en 20 documentos y \emph{psychiatry} en 18; entre los 33 documentos incluidos aparecen en 6 y 11. Gran parte del aparente perfil médico de esta base provenía, por tanto, de registros no relacionados con estudiantes.
 
-\paragraph{Gráficas excluidas} No se incluyen la red de co-ocurrencia, el mapa temático ni la tendencia de temas. Con 33 documentos, los nodos centrales de la red se superponen, varios conceptos de OpenAlex son errores de desambiguación (por ejemplo ``classifier (UML)'' o ``feature (linguistics)''), y varios temas se apoyan en muy pocas apariciones.
+\paragraph{Gráficas excluidas.} No se incluyen la red de co-ocurrencia, el mapa temático ni la tendencia de temas. Con 33 documentos, los nodos centrales de la red se superponen, varios conceptos de OpenAlex son errores de desambiguación (por ejemplo ``classifier (UML)'' o ``feature (linguistics)''), y varios temas se apoyan en muy pocas apariciones.
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{sciencedirect/es/01_annual_production}
+\includegraphics[width=0.7\textwidth]{sciencedirect/es/01_annual_production}
 \caption{ScienceDirect: producción científica anual de los documentos incluidos (2026 es un año parcial).}
 \label{fig:sd-prod}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{sciencedirect/es/02_sources}
+\includegraphics[width=0.8\textwidth]{sciencedirect/es/02_sources}
 \caption{ScienceDirect: las diez fuentes más relevantes.}
 \label{fig:sd-sources}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{sciencedirect/es/03_countries}
+\includegraphics[width=0.7\textwidth]{sciencedirect/es/03_countries}
 \caption{ScienceDirect: países más productivos (todos los autores, conteo completo).}
 \label{fig:sd-countries}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{sciencedirect/es/04_keywords}
+\includegraphics[width=0.7\textwidth]{sciencedirect/es/04_keywords}
 \caption{ScienceDirect: conceptos de OpenAlex más frecuentes (en inglés, como en los metadatos originales).}
 \label{fig:sd-keywords}
 \end{figure}
@@ -327,40 +335,40 @@ ScienceDirect aporta 33 documentos incluidos (28 artículos de revista y 5 artí
 
 SpringerLink aporta 43 documentos incluidos (19 artículos de revista y 24 artículos de congreso), todos con palabras clave de autor. Como en SpringerLink se buscó en el campo de palabras clave, todos los documentos contienen por construcción términos de la búsqueda entre sus palabras clave.
 
-\paragraph{Producción anual} La producción crece cada año: 1 documento en 2021 y en 2022, 4 en 2023, 7 en 2024 y 12 en 2025 (Figura~\ref{fig:sl-prod}). Los 18 documentos del año parcial 2026 ya superan a 2025. No se calcula una tasa de crecimiento porque un valor inicial de un documento da una cifra sin sentido.
+\paragraph{Producción anual.} La producción crece cada año: 1 documento en 2021 y en 2022, 4 en 2023, 7 en 2024 y 12 en 2025 (Figura~\ref{fig:sl-prod}). Los 18 documentos del año parcial 2026 ya superan a 2025. No se calcula una tasa de crecimiento porque un valor inicial de un documento da una cifra sin sentido.
 
-\paragraph{Países} 36 documentos tienen país. China reúne casi la mitad (17 documentos, 47\%), seguida de India (5) y Estados Unidos (4) (Figura~\ref{fig:sl-countries}). La proporción de documentos de varios países (8 de 36, 22\%) es la más alta de las tres bases; Estados Unidos, Hong Kong, Bangladés y Canadá publican principalmente en colaboración. México (2 documentos) es el único país latinoamericano entre los diez más productivos.
+\paragraph{Países.} 36 documentos tienen país. China reúne casi la mitad (17 documentos, 47\%), seguida de India (5) y Estados Unidos (4) (Figura~\ref{fig:sl-countries}). La proporción de documentos de varios países (8 de 36, 22\%) es la más alta de las tres bases; Estados Unidos, Hong Kong, Bangladés y Canadá publican principalmente en colaboración. México (2 documentos) es el único país latinoamericano entre los diez más productivos.
 
-\paragraph{Palabras clave} \emph{Machine learning} aparece en el 63\% de los documentos (27 de 43) y \emph{mental health} en 18, en parte porque la búsqueda se hizo sobre este campo (Figura~\ref{fig:sl-keywords}). Lo distintivo de esta base es el vocabulario del bienestar positivo: \emph{student well-being} (4), \emph{subjective well-being} (4) y \emph{eudaimonic well-being} (2).
+\paragraph{Palabras clave.} \emph{Machine learning} aparece en el 63\% de los documentos (27 de 43) y \emph{mental health} en 18, en parte porque la búsqueda se hizo sobre este campo (Figura~\ref{fig:sl-keywords}). Lo distintivo de esta base es el vocabulario del bienestar positivo: \emph{student well-being} (4), \emph{subjective well-being} (4) y \emph{eudaimonic well-being} (2).
 
-\paragraph{Red de co-ocurrencia} La red tiene tres grupos (Figura~\ref{fig:sl-network}). El grupo rojo vincula \emph{machine learning} y \emph{mental health} con los estudiantes universitarios, la depresión y la detección temprana. El grupo verde reúne el bienestar subjetivo y eudaimónico, la satisfacción con la vida y PISA 2018, y se conecta con \emph{machine learning} solo mediante vínculos débiles. El grupo azul, \emph{student well-being} con \emph{learning analytics}, está aislado del resto. En esta base, el bienestar positivo se estudia en paralelo con la predicción de problemas de salud mental, no integrado con ella.
+\paragraph{Red de co-ocurrencia.} La red tiene tres grupos (Figura~\ref{fig:sl-network}). El grupo rojo vincula \emph{machine learning} y \emph{mental health} con los estudiantes universitarios, la depresión y la detección temprana. El grupo verde reúne el bienestar subjetivo y eudaimónico, la satisfacción con la vida y PISA 2018, y se conecta con \emph{machine learning} solo mediante vínculos débiles. El grupo azul, \emph{student well-being} con \emph{learning analytics}, está aislado del resto. En esta base, el bienestar positivo se estudia en paralelo con la predicción de problemas de salud mental, no integrado con ella.
 
-\paragraph{Gráficas excluidas} No se incluyen la gráfica de fuentes, el mapa temático ni la tendencia de temas. Los 43 documentos se reparten en 35 fuentes y ninguna tiene más de 4 documentos; la mayoría de los temas del mapa temático se apoyan en dos apariciones de un término, y hay muy pocos términos repetidos por año para obtener tendencias confiables.
+\paragraph{Gráficas excluidas.} No se incluyen la gráfica de fuentes, el mapa temático ni la tendencia de temas. Los 43 documentos se reparten en 35 fuentes y ninguna tiene más de 4 documentos; la mayoría de los temas del mapa temático se apoyan en dos apariciones de un término, y hay muy pocos términos repetidos por año para obtener tendencias confiables.
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{springerlink/es/01_annual_production}
+\includegraphics[width=0.7\textwidth]{springerlink/es/01_annual_production}
 \caption{SpringerLink: producción científica anual de los documentos incluidos (2026 es un año parcial).}
 \label{fig:sl-prod}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{springerlink/es/03_countries}
+\includegraphics[width=0.7\textwidth]{springerlink/es/03_countries}
 \caption{SpringerLink: países más productivos (todos los autores, conteo completo).}
 \label{fig:sl-countries}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{springerlink/es/04_keywords}
+\includegraphics[width=0.7\textwidth]{springerlink/es/04_keywords}
 \caption{SpringerLink: palabras clave de autor más frecuentes (en inglés, como en los metadatos originales).}
 \label{fig:sl-keywords}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\columnwidth]{springerlink/es/05_cooccurrence_network}
+\includegraphics[width=0.9\textwidth]{springerlink/es/05_cooccurrence_network}
 \caption{SpringerLink: red de co-ocurrencia de las palabras clave de autor (grupos de Louvain).}
 \label{fig:sl-network}
 \end{figure}
@@ -370,7 +378,7 @@ SpringerLink aporta 43 documentos incluidos (19 artículos de revista y 24 artí
 
 La Tabla~\ref{tab:comparison} resume los indicadores principales. La producción crece en las tres bases, pero difieren en volumen, tipo de documento, geografía y énfasis temático. IEEE Xplore concentra el trabajo en modelos predictivos, sobre todo en artículos de congreso. ScienceDirect, una vez eliminados los registros no relacionados, refleja la intersección entre psicología y computación en revistas. SpringerLink aporta la perspectiva del bienestar positivo. Las bases bibliográficas difieren en las disciplinas que cubren \cite{mongeon2016coverage}, y en las tres bases se buscó en campos distintos, por lo que estas diferencias reflejan también las bases y la búsqueda, no solo el campo de investigación.
 
-\begin{table*}[!t]
+\begin{table}[htbp]
 \centering
 \caption{Indicadores principales de los documentos incluidos por base de datos.}
 \label{tab:comparison}
@@ -391,7 +399,7 @@ Resúmenes vagos & 43\% & 9\% & 21\% \\
 XAI reportada & 10\% & 33\% & 23\% \\
 \bottomrule
 \end{tabularx}
-\end{table*}
+\end{table}
 
 % =====================================================================
 \section{Discusión}\label{sec:discussion}
@@ -437,11 +445,11 @@ Cribar los resúmenes cambió el panorama: casi un tercio de los registros obten
 % =====================================================================
 \section*{Declaraciones}
 
-\paragraph{Disponibilidad de los datos} Las ecuaciones de búsqueda, los scripts de obtención y de análisis, el libro de códigos, los registros cribados y codificados (con sus identificadores y DOI) y el registro de armonización están disponibles en acceso abierto en \url{https://github.com/lyc4nthrope/student-wellbeing-mental-health-analytics-review}. Los resúmenes de las editoriales no se redistribuyen; pueden obtenerse de nuevo con el script de obtención y las claves de API propias del lector.
+\paragraph{Disponibilidad de los datos.} Las ecuaciones de búsqueda, los scripts de obtención y de análisis, el libro de códigos, los registros cribados y codificados (con sus identificadores y DOI) y el registro de armonización están disponibles en acceso abierto en \url{https://github.com/lyc4nthrope/student-wellbeing-mental-health-analytics-review}. Los resúmenes de las editoriales no se redistribuyen; pueden obtenerse de nuevo con el script de obtención y las claves de API propias del lector.
 
-\paragraph{Uso de inteligencia artificial} Se usó un modelo de lenguaje de gran tamaño como apoyo en el cribado de resúmenes, la extracción de datos y la redacción de este manuscrito. El autor revisó los resultados y es responsable del contenido.
+\paragraph{Uso de inteligencia artificial.} Se usó un modelo de lenguaje de gran tamaño como apoyo en el cribado de resúmenes, la extracción de datos y la redacción de este manuscrito. El autor revisó los resultados y es responsable del contenido.
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{unsrtnat}
 \bibliography{references,corpus}
 
 \end{document}

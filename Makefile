@@ -6,7 +6,7 @@ PYTHON ?= python3
 RSCRIPT ?= Rscript
 FIGURES = ieee:DE springerlink:DE sciencedirect:ID
 
-.PHONY: all published fetch clean-keywords extraction included figures stats bib article clean
+.PHONY: all published article-onecolumn fetch clean-keywords extraction included figures stats bib article clean
 
 all: clean-keywords extraction included figures stats bib article
 
@@ -41,10 +41,15 @@ stats:            ## 06: numbers reported in the systematic review
 bib:              ## 07: bibliography of the cited included studies
 	$(PYTHON) scripts/07_make_corpus_bib.py
 
-article:          ## build the English and Spanish PDFs
+article:          ## build the IEEE two-column PDFs (English and Spanish)
 	cd article && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex > /dev/null
 	cd article && latexmk -pdf -interaction=nonstopmode -halt-on-error main_es.tex > /dev/null
 	@echo "wrote article/main.pdf and article/main_es.pdf"
 
+article-onecolumn: ## build the one-column backup PDFs
+	cd article && latexmk -pdf -interaction=nonstopmode -halt-on-error main_onecolumn.tex > /dev/null
+	cd article && latexmk -pdf -interaction=nonstopmode -halt-on-error main_es_onecolumn.tex > /dev/null
+	@echo "wrote article/main_onecolumn.pdf and article/main_es_onecolumn.pdf"
+
 clean:            ## remove LaTeX build files
-	cd article && latexmk -c main.tex main_es.tex
+	cd article && latexmk -c main.tex main_es.tex main_onecolumn.tex main_es_onecolumn.tex
