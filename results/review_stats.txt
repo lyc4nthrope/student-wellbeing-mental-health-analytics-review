@@ -1,0 +1,60 @@
+Included studies: 502
+
+Table 1 - overview
+  study_type: predictive_model 327 (65%); system_framework 109 (22%); factor_analysis 42 (8%); descriptive 14 (3%); review 14 (3%); other 5 (1%)
+  population: university 331 (66%); mixed_unspecified 141 (28%); secondary_school 27 (5%); vocational 5 (1%)
+  outcome: stress 163 (32%); general_mh_risk 149 (30%); depression 135 (27%); anxiety 102 (20%); emotions 62 (12%); wellbeing 50 (10%); addiction 22 (4%); other 21 (4%); suicide 14 (3%)
+  data_source: survey 169 (34%); not_reported 130 (26%); multimodal 77 (15%); sensors_physiological 45 (9%); public_dataset 42 (8%); smartphone_digital 20 (4%); social_media_text 18 (4%); institutional_records 11 (2%); large_scale_survey 9 (2%)
+  method: classic_ml 218 (43%); ensemble_boosting 199 (40%); deep_learning 154 (31%); nlp_sentiment 69 (14%); not_reported 66 (13%); statistical 59 (12%); association_clustering 43 (9%); reinforcement_learning 4 (1%)
+  xai: no 439 (87%); yes 63 (13%)
+  quality_note: clear 307 (61%); vague 195 (39%)
+
+Thematic categories
+  Depression/anxiety/stress prediction: 229 (46%), vague 59, XAI 38
+  Suicide risk: 14 (3%), vague 5, XAI 1
+  Early warning systems and platforms: 109 (22%), vague 86, XAI 0
+  Sensor-based and multimodal sensing: 142 (28%), vague 60, XAI 16
+  Language, text and emotion: 109 (22%), vague 63, XAI 11
+  Positive well-being: 50 (10%), vague 17, XAI 5
+  Addiction: 22 (4%), vague 7, XAI 3
+  Reviews: 14 (3%), vague 6, XAI 0
+  In no category: 56
+
+Table 2 - outcome x method
+  stress: n=163 classic_ml=85 ensemble_boosting=65 deep_learning=54 nlp_sentiment=27 association_clustering=3 statistical=15
+  general_mh_risk: n=149 classic_ml=46 ensemble_boosting=33 deep_learning=44 nlp_sentiment=22 association_clustering=29 statistical=16
+  depression: n=135 classic_ml=70 ensemble_boosting=78 deep_learning=48 nlp_sentiment=12 association_clustering=6 statistical=13
+  anxiety: n=102 classic_ml=47 ensemble_boosting=45 deep_learning=39 nlp_sentiment=14 association_clustering=7 statistical=15
+  emotions: n=62 classic_ml=12 ensemble_boosting=7 deep_learning=29 nlp_sentiment=26 association_clustering=5 statistical=1
+  wellbeing: n=50 classic_ml=16 ensemble_boosting=18 deep_learning=9 nlp_sentiment=7 association_clustering=4 statistical=13
+  addiction: n=22 classic_ml=9 ensemble_boosting=10 deep_learning=6 nlp_sentiment=2 association_clustering=2 statistical=5
+  suicide: n=14 classic_ml=9 ensemble_boosting=7 deep_learning=2 nlp_sentiment=1 association_clustering=0 statistical=1
+
+Table 3 - shares per year
+  2021 n=26 XAI 4% DL 15% sensing 15% NLP 12% wellbeing 4%
+  2022 n=27 XAI 4% DL 19% sensing 26% NLP 11% wellbeing 15%
+  2023 n=59 XAI 5% DL 17% sensing 32% NLP 7% wellbeing 14%
+  2024 n=110 XAI 6% DL 29% sensing 29% NLP 9% wellbeing 10%
+  2025 n=182 XAI 11% DL 41% sensing 26% NLP 19% wellbeing 12%
+  2026 n=98 XAI 32% DL 30% sensing 33% NLP 15% wellbeing 5%
+
+Quality signals
+  IEEE Xplore: vague 183 (43%), XAI 42 (10%)
+  ScienceDirect: vague 3 (9%), XAI 11 (33%)
+  SpringerLink: vague 9 (21%), XAI 10 (23%)
+  Report a performance value: 308; value >= 98%: 44
+  Mention external validation: ['S005', 'S021']
+  Countries stated: [('Bangladesh', 27), ('China', 20), ('India', 17)]
+
+Signals in the original abstracts of included studies
+  fairness/bias: 7 (1%)
+  calibration: 3 (1%)
+  reporting guideline (TRIPOD, STARD, CONSORT): 0 (0%)
+  privacy/confidentiality: 39 (8%)
+
+Depression/anxiety/stress category (n=229): variables named in abstracts
+  academic pressure/workload/performance: 82 (36%)
+  social support/family: 33 (14%)
+  sleep: 31 (14%)
+  finances: 19 (8%)
+  validated instrument: 45 (20%)

@@ -1,0 +1,198 @@
+label	replace by
+"big data" technology	big data technology
+$knn$.	k-nearest neighbors
+acoustic	acoustics
+adolescent	adolescents
+ai	artificial intelligence
+ai-ml	ai/ml
+algorithm	algorithms
+ann	artificial neural networks
+anxiety disorder	anxiety disorders
+artificial intelligence (ai)	artificial intelligence
+artificial neural network	artificial neural networks
+association rules mining	association rule mining
+attention mechanisms	attention mechanism
+autoencoder	autoencoders
+bi-directional lstm	bidirectional long short term memory
+bi-lstm	bidirectional long short term memory
+bibliometric	bibliometrics
+bidirectional long short-term memory	bidirectional long short term memory
+bidirectional long short-term memory (bi-lstm)	bidirectional long short term memory
+bidirectional long- and short-term memory (bilstm)	bidirectional long short term memory
+big data application	big data applications
+bilstm	bidirectional long short term memory
+blockchain	blockchains
+chatbot	chatbots
+classification algorithm	classification algorithms
+classification model	classification models
+classifiers	classifier
+classroom	classrooms
+clustering algorithm	clustering algorithms
+cnn	convolutional neural networks
+college student	college students
+college student mental health	college students’ mental health
+college students' psychology	college student psychology
+computer	computers
+conversational agents	conversational agent
+convolution neural network (cnn)	convolutional neural networks
+convolutional neural network	convolutional neural networks
+convolutional neural network (cnn)	convolutional neural networks
+convolutional neural networks (cnn)	convolutional neural networks
+coronavirus disease 2019 (covid-19)	covid-19
+covid- 19	covid-19
+dataset	datasets
+decision support system	decision support systems
+decision tree	decision trees
+decision tree algorithm	decision trees
+decision tree classifier	decision trees
+decision trees (dt)	decision trees
+deep learning (dl)	deep learning
+deep learning model	deep learning models
+depression (economics)	depression
+digital twin	digital twins
+disease	diseases
+dl	deep learning
+dt- decision tree	decision trees
+early warning systems	early warning system
+eeg	electroencephalography
+electroencephalogram	electroencephalography
+electroencephalograms (eegs)	electroencephalography
+ensemble learnings	ensemble learning
+ensemble model	ensemble models
+ensembles models	ensemble models
+evaluation system	evaluation systems
+explainable ai (xai)	explainable ai
+explainable artificial intelligence	explainable ai
+explainable artificial intelligence (xai)	explainable ai
+explainable-ai	explainable ai
+explanaible ai	explainable ai
+extreme gradient boosting	xgboost
+extreme learning machine	extreme learning machines
+facial expression	facial expressions
+feature selections	feature selection
+filter	filters
+gan	gans
+gated recurrent unit	gated recurrent units
+genetic algorithms	genetic algorithm
+graph neural network	graph neural networks
+hidden markov model	hidden markov models
+high school student	high school students
+human-computer interaction	human computer interaction
+human–ai collaboration	human-ai collaboration
+human–computer interaction	human computer interaction
+intelligent system	intelligent systems
+internet of things (iot)	internet of things
+iot	internet of things
+k nearest neighbour	k-nearest neighbors
+k-mean	k-means
+k-nearest neighbor	k-nearest neighbors
+k-nearest neighbor algorithm	k-nearest neighbors
+k-nearest neighbors (knn)	k-nearest neighbors
+k-nearest neighbour	k-nearest neighbors
+k-nearest neighbour classifier	k-nearest neighbors
+k-nearest neighbour hood	k-nearest neighbors
+k-nn	k-nearest neighbors
+knearest neighbors	k-nearest neighbors
+knn	k-nearest neighbors
+knn -k nearest neighbour	k-nearest neighbors
+knowledge graph	knowledge graphs
+large language model	large language models
+large language model (llm)	large language models
+large language models (llm)	large language models
+large language models (llms)	large language models
+learning management system	learning management systems
+llm	large language models
+llms	large language models
+logistic regression (lr)	logistic regression
+long short-term memory	long short term memory
+long short-term memory (lstm)	long short term memory
+lstm	long short term memory
+lstm(long short-term memory)	long short term memory
+lungs	lung
+machine learning (ml)	machine learning
+machine learning algorithm	machine learning algorithms
+machine learning model	machine learning models
+mathematical model	mathematical models
+medical student	medical students
+mel frequency cepstral coefficient	mel-frequency cepstral coefficient
+mental disorder	mental disorders
+mental health problem	mental health problems
+mental well - being	mental well-being
+ml	machine learning
+mobile application	mobile applications
+monte carlo method	monte carlo methods
+mood based songs recommendation	mood-based song recommendations
+multilayer perceptron	multilayer perceptrons
+naive bayes classifier	naive bayes
+naive bayes classifiers (nb)	naive bayes
+natural language processing (nlp)	natural language processing
+naïve bayes	naive bayes
+neural network	neural networks
+neural networks (nn)	neural networks
+nlp	natural language processing
+nlp (natural language processing)	natural language processing
+nlp-natural language processing	natural language processing
+operating system	operating systems
+pandemic	pandemics
+patient	patients
+performance metric	performance metrics
+personalized intervention	personalized interventions
+physiological signal	physiological signals
+principal component analysis.	principal component analysis
+pulmonary disease	pulmonary diseases
+random forest	random forests
+random forest (rf)	random forests
+random forest algorithm	random forests
+random forest classifier	random forests
+recommender system	recommender systems
+recurrent neural network	recurrent neural networks
+retrieval-augmented generation	retrieval augmented generation
+rf	random forests
+robot	robots
+sentimental analysis	sentiment analysis
+serious game	serious games
+signal to noise ratio	signal-to-noise ratio
+smart phone	smartphones
+smart phones	smartphones
+smartphone	smartphones
+smartphones)	smartphones
+social robot	social robots
+speech-to-text	speech to text
+stressors	stressor
+student	students
+student stress	students stress
+student well being	student well-being
+student's performance	student performance
+student's well-being	student well-being
+students health	student health
+students mental health	student mental health
+students' academic performance	student academic performance
+students' mental health	student mental health
+students’ mental health	student mental health
+student’s mental health	student mental health
+support vector machine	support vector machines
+support vector machine (svm)	support vector machines
+support vector machines (svm)	support vector machines
+survey	surveys
+svm	support vector machines
+svm -support vector machine	support vector machines
+svm model	support vector machines
+teacher wellbeing	teachers wellbeing
+technology.	technology
+teenager	teenagers
+text to speech	text-to-speech
+time-series	time series
+tiny ml	tiny machine learning
+transformer	transformers
+transformer-based model	transformer-based models
+university student	university students
+vector	vectors
+virtual assistant	virtual assistants
+wearable	wearables
+wearable computer	wearable computers
+wireless sensor network	wireless sensor networks
+xai	explainable ai
+xgboost (extreme gradient boosting)	xgboost
+xgboost algorithm	xgboost
+xgboost classifier	xgboost
+young adult	young adults

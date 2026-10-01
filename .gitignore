@@ -1,0 +1,22 @@
+# Secrets: API keys live only in .env (see .env.example)
+.env
+
+# Raw API exports: they contain publisher abstracts and are not redistributed (see README)
+data/raw/*
+!data/raw/.gitkeep
+
+# Python / R
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+
+# LaTeX build files
+article/*.aux
+article/*.bbl
+article/*.blg
+article/*.fdb_latexmk
+article/*.fls
+article/*.log
+article/*.out
+article/*.synctex.gz
