@@ -40,3 +40,13 @@ def included_csv(db: str) -> Path:
 def record_id(db: str, row_number: int) -> str:
     """Identifier of a record: database prefix + 1-based row number in the clean CSV."""
     return f"{ID_PREFIX[db]}{row_number:03d}"
+
+
+def require_raw_exports():
+    """Stop with a clear message when the API exports of the snapshot are missing."""
+    missing = [clean_csv(db).name for db in DATABASES if not clean_csv(db).exists()]
+    if missing:
+        raise SystemExit(
+            f"Missing in data/raw/: {', '.join(missing)}\n"
+            "The raw API exports are not published (they contain publisher abstracts). "
+            "Run steps 01-02 to create them, or use `make published` to work from the published data.")

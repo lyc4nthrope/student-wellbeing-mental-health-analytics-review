@@ -6,9 +6,12 @@ PYTHON ?= python3
 RSCRIPT ?= Rscript
 FIGURES = ieee:DE springerlink:DE sciencedirect:ID
 
-.PHONY: all fetch clean-keywords extraction included figures stats bib article clean
+.PHONY: all published fetch clean-keywords extraction included figures stats bib article clean
 
 all: clean-keywords extraction included figures stats bib article
+
+# From the published data only (no raw exports needed): figures, statistics, bibliography, PDFs
+published: figures stats bib article
 
 fetch:            ## 01: download metadata from the APIs into data/raw/ (needs .env)
 	$(PYTHON) scripts/01_fetch_metadata.py

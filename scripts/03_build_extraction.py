@@ -18,7 +18,7 @@ import json
 import sys
 
 from harmonize import apply_rules
-from paths import CODING, DATABASE_LABEL, DATABASES, SCREENING, clean_csv, record_id
+from paths import CODING, DATABASE_LABEL, DATABASES, SCREENING, clean_csv, record_id, require_raw_exports
 
 KEYS = ["screening", "screening_reason", "study_type", "population", "outcome", "data_source",
         "method", "xai", "best_result", "country", "quality_note", "summary_en"]
@@ -65,6 +65,7 @@ def write_csv(path, rows):
 
 
 def main():
+    require_raw_exports()
     coding = load_coding()
     errors, log, all_rows, expected = [], [], [], set()
     for db in DATABASES:

@@ -10,7 +10,7 @@ Usage: python3 scripts/04_select_included.py
 """
 import csv
 
-from paths import DATABASES, INCLUDED, SCREENING, clean_csv, included_csv, record_id
+from paths import DATABASES, INCLUDED, SCREENING, clean_csv, included_csv, record_id, require_raw_exports
 
 DROPPED_COLUMNS = ("Abstract",)
 
@@ -21,6 +21,7 @@ def screening_decisions():
 
 
 def main():
+    require_raw_exports()
     decisions = screening_decisions()
     INCLUDED.mkdir(parents=True, exist_ok=True)
     for db in DATABASES:

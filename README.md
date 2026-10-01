@@ -79,6 +79,9 @@ make fetch
 make all
 ```
 
+Without API keys, `make published` regenerates the figures, the review statistics, the
+bibliography and both PDFs from the data published in this repository (steps 05–07).
+
 `make all` runs steps 02–07 and compiles both PDFs. It expects the exports of the
 2026-09-28 snapshot in `data/raw/` with the names `bibliometria_20260928_<db>.csv`
 (see `scripts/paths.py`).

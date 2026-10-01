@@ -10,6 +10,7 @@ Usage: python3 scripts/06_review_stats.py
 import collections
 import csv
 import re
+import sys
 
 from paths import DATABASES, SCREENING, clean_csv, record_id
 
@@ -85,7 +86,8 @@ print(f"  Countries stated: {sorted(countries.items(), key=lambda item: (-item[1
 
 # Signals counted on the original abstracts (not on the coded summaries)
 if not all(clean_csv(db).exists() for db in DATABASES):
-    raise SystemExit("\nSkipped the abstract-based counts: data/raw/ exports not found (see README).")
+    print("\nSkipped the abstract-based counts: data/raw/ exports not found (see README).")
+    sys.exit(0)  # expected when working from the published data, not an error
 abstracts = {}
 for db in DATABASES:
     with open(clean_csv(db), encoding="utf-8", newline="") as _f:
